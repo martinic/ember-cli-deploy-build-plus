@@ -61,7 +61,7 @@ The path to the directory you'd like the project to be built in retured to `cont
 
 ### distDir
 
-Mutable input path normaly setup by outputPath where your project will be built.
+Mutable input path normally setup by outputPath where your project will be built.
 
 *Default:* `context.distDir`
 
