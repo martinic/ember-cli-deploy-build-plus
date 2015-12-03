@@ -1,4 +1,4 @@
-# ember-cli-deploy-build
+# ember-cli-deploy-build-plus
 
 > An ember-cli-deploy plugin to build your ember-cli application
 
@@ -19,7 +19,7 @@ For more information on what plugins are and how they work, please refer to the 
 - Install this plugin
 
 ```bash
-$ ember install ember-cli-deploy-build
+$ ember install ember-cli-deploy-build-plus
 ```
 
 - Run the pipeline
@@ -32,7 +32,7 @@ $ ember deploy
 Run the following command in your terminal:
 
 ```bash
-ember install ember-cli-deploy-build
+ember install ember-cli-deploy-build-plus
 ```
 
 ## ember-cli-deploy Hooks Implemented

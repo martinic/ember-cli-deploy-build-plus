@@ -7,7 +7,7 @@ var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
 
 module.exports = {
-  name: 'ember-cli-deploy-build',
+  name: 'ember-cli-deploy-build-plus',
 
   createDeployPlugin: function(options) {
     var DeployPlugin = DeployPluginBase.extend({

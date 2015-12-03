@@ -14,5 +14,6 @@
 - [#14](https://github.com/ember-cli-deploy/ember-cli-deploy-build/pull/14) Ensure we are using the Builder from the project's version of ember-cli [@lukemelia](https://github.com/lukemelia)
 - [#15](https://github.com/ember-cli-deploy/ember-cli-deploy-build/pull/15) use path.sep instead of / for cross-platform compatibility [@duizendnegen](https://github.com/duizendnegen)
 - [#16](https://github.com/ember-cli-deploy/ember-cli-deploy-build/pull/16) Update README for 0.5.0 [@achambers](https://github.com/achambers)
+- [#17](https://github.com/martinic/ember-cli-deploy-build-plus/pull/1) Create mutable distDir input for the build hook. [@broerse](https://github.com/broerse)
 
 Thank you to all who took the time to contribute!
