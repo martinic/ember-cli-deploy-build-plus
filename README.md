@@ -40,6 +40,7 @@ ember install ember-cli-deploy-build-plus
 For detailed information on what plugin hooks are and how they work, please refer to the [Plugin Documentation][1].
 
 - `configure`
+- `setup`
 - `build`
 
 ## Configuration Options
@@ -54,9 +55,15 @@ The environment for which you'd like to build. This relates directly to the envi
 
 ### outputPath
 
-The path to the directory you'd like the project to be built in to.
+The path to the directory you'd like the project to be built in retured to `context.distDir`.
 
 *Default:* `tmp/deploy-dist`
+
+### distDir
+
+Mutable input path normaly setup by outputPath where your project will be built.
+
+*Default:* `context.distDir`
 
 ## Prerequisites
 
