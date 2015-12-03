@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-deploy-build-plus",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "A Build Plugin for ember-cli-deploy",
   "directories": {
     "doc": "doc",
@@ -11,7 +11,7 @@
     "build": "ember build",
     "test": "node tests/runner.js"
   },
-  "repository": "https://github.com/ember-cli-deploy/ember-cli-deploy-build-plus",
+  "repository": "https://github.com/martinic/ember-cli-deploy-build-plus",
   "engines": {
     "node": ">= 0.10.0"
   },
