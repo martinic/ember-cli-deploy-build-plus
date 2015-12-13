@@ -179,6 +179,8 @@ describe('build plugin', function() {
                'assets/test-support.css',
                'assets/test-support.js',
                'assets/test-support.map',
+               'assets/tests.js',
+               'assets/tests.map',
                'assets/vendor.css',
                'assets/vendor.js',
                'assets/vendor.map',
