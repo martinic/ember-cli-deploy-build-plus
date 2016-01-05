@@ -5,9 +5,16 @@ var Promise = require('ember-cli/lib/ext/promise');
 var glob  = require('glob');
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
+var Funnel = require('broccoli-funnel');
 
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
+
+  treeForPublic: function(tree) {
+    var publicFiles = Funnel('public');
+    console.log('treeForPublic ' + publicFiles);
+    return this._super.treeForPublic.call(this, tree);
+  },
 
   createDeployPlugin: function(options) {
     var DeployPlugin = DeployPluginBase.extend({
