@@ -6,14 +6,19 @@ var glob  = require('glob');
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
 var Funnel = require('broccoli-funnel');
+var stew = require('broccoli-stew');
 
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
 
-  treeForPublic: function(tree) {
-    var publicFiles = Funnel('public');
+  treeForPublic: function() {
+    var publicFiles = new Funnel('tests/dummy/public');
+    publicFiles = stew.rename(publicFiles, 'robots.txt', 'robots-production.txt');
+    publicFiles = stew.log(publicFiles);
+
     console.log('treeForPublic ' + publicFiles);
-    return this._super.treeForPublic.call(this, tree);
+//    return publicFiles;
+    return this._super.treeForPublic.call(this, publicFiles);
   },
 
   createDeployPlugin: function(options) {
