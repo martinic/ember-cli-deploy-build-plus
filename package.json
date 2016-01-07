@@ -19,6 +19,8 @@
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",
+    "broccoli-stew": "^1.2.0",
+    "broccoli-funnel": "^1.0.1",
     "chai": "^3.4.1",
     "chai-as-promised": "^5.2.0",
     "ember-ajax": "0.7.1",

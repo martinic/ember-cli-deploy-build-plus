@@ -5,9 +5,55 @@ var Promise = require('ember-cli/lib/ext/promise');
 var glob  = require('glob');
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
+var Funnel = require('broccoli-funnel');
+var stew = require('broccoli-stew');
+var fs = require('fs');
+var chalk = require('chalk');
+
+function cleanupRobotsTxt(outputPath) {
+  var files = glob.sync(outputPath + path.sep + 'robots-*.txt');
+  if (files && files.length) {
+    files.forEach(function(path) {
+      fs.unlink(path);
+    });
+  }
+}
 
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
+
+  // Cleanup env specific robots.txt
+  postBuild: function(result) {
+    cleanupRobotsTxt(result.directory);
+  },
+
+  // Pick env specific robots.txt
+  treeForPublic: function(tree) {
+    var appEnv = this.app.env;
+    var publicFiles = new Funnel(this.app.trees.public);
+
+    this._requireBuildPackages();
+
+    fs.stat(
+      path.join(this.root, this.app.trees.public, 'robots.txt'),
+      function(err, stats) {
+        if (stats && stats.isFile()) {
+          console.log(chalk.yellow('There is a robots.txt in /public and ENV specific robots.txt are ignored!'));
+        }
+      }
+    );
+
+    publicFiles = stew.rename(
+      publicFiles,
+      'robots-' + appEnv + '.txt',
+      'robots.txt'
+    );
+
+    return new Funnel(publicFiles, {
+      srcDir: '/',
+      destDir: '/'
+    });
+  },
 
   createDeployPlugin: function(options) {
     var DeployPlugin = DeployPluginBase.extend({
@@ -45,6 +91,7 @@ module.exports = {
           .finally(function() {
             return builder.cleanup();
           })
+          .then(this._cleanupRobotsTxt.bind(this, distDir))
           .then(this._logSuccess.bind(this, distDir))
           .then(function(files) {
             files = files || [];
@@ -57,6 +104,11 @@ module.exports = {
             self.log('build failed', { color: 'red' });
             return Promise.reject(error);
           });
+      },
+      _cleanupRobotsTxt: function(outputPath) {
+        cleanupRobotsTxt(outputPath);
+
+        return outputPath;
       },
       _logSuccess: function(outputPath) {
         var self = this;
