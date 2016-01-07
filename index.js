@@ -28,7 +28,7 @@ module.exports = {
   },
 
   // Pick env specific robots.txt
-  treeForPublic: function(tree) {
+  treeForPublic: function() {
     var appEnv = this.app.env;
     var publicFiles = new Funnel(this.app.trees.public);
 
