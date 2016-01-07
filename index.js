@@ -8,6 +8,7 @@ var path = require('path');
 var Funnel = require('broccoli-funnel');
 var stew = require('broccoli-stew');
 var fs = require('fs');
+var chalk = require('chalk');
 
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
@@ -28,6 +29,15 @@ module.exports = {
     var publicFiles = new Funnel(this.app.trees.public);
 
     this._requireBuildPackages();
+
+    fs.stat(
+      path.join(this.root, this.app.trees.public, 'robots.txt'),
+      function(err, stats) {
+        if (stats && stats.isFile()) {
+          console.log(chalk.yellow('There is a robots.txt in /public and ENV specifc robots.txt are ignored!'));
+        }
+      }
+    );
 
     publicFiles = stew.rename(
       publicFiles,
