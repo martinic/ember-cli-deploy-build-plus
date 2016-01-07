@@ -7,19 +7,38 @@ var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
 var Funnel = require('broccoli-funnel');
 var stew = require('broccoli-stew');
+var fs = require('fs');
 
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
 
+  // Cleanup env specific robots.txt
+  postBuild: function(result) {
+    var files = glob.sync(result.directory + path.sep + 'robots-*.txt');
+    if (files && files.length) {
+      files.forEach(function(path) {
+        fs.unlink(path);
+      });
+    }
+  },
+
+  // Pick env specific robots.txt
   treeForPublic: function(tree) {
-    this._super.treeForPublic.call(this, tree);
     var appEnv = this.app.env;
-    var publicTree = this.app.trees.public;
-    var publicFiles = new Funnel(publicTree);
-    publicFiles = stew.rename(publicFiles, 'robots-'+ appEnv +'.txt', 'robots.txt');
-    publicFiles = stew.rm(publicFiles, 'robots-*.txt');
-    publicFiles = stew.log(publicFiles);
-    return publicFiles;
+    var publicFiles = new Funnel(this.app.trees.public);
+
+    this._requireBuildPackages();
+
+    publicFiles = stew.rename(
+      publicFiles,
+      'robots-' + appEnv + '.txt',
+      'robots.txt'
+    );
+
+    return new Funnel(publicFiles, {
+      srcDir: '/',
+      destDir: '/'
+    });
   },
 
   createDeployPlugin: function(options) {
