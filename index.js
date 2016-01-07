@@ -10,17 +10,21 @@ var stew = require('broccoli-stew');
 var fs = require('fs');
 var chalk = require('chalk');
 
+function cleanupRobotsTxt(outputPath) {
+  var files = glob.sync(outputPath + path.sep + 'robots-*.txt');
+  if (files && files.length) {
+    files.forEach(function(path) {
+      fs.unlink(path);
+    });
+  }
+}
+
 module.exports = {
   name: 'ember-cli-deploy-build-plus',
 
   // Cleanup env specific robots.txt
   postBuild: function(result) {
-    var files = glob.sync(result.directory + path.sep + 'robots-*.txt');
-    if (files && files.length) {
-      files.forEach(function(path) {
-        fs.unlink(path);
-      });
-    }
+    cleanupRobotsTxt(result.directory);
   },
 
   // Pick env specific robots.txt
@@ -34,7 +38,7 @@ module.exports = {
       path.join(this.root, this.app.trees.public, 'robots.txt'),
       function(err, stats) {
         if (stats && stats.isFile()) {
-          console.log(chalk.yellow('There is a robots.txt in /public and ENV specifc robots.txt are ignored!'));
+          console.log(chalk.yellow('There is a robots.txt in /public and ENV specific robots.txt are ignored!'));
         }
       }
     );
@@ -87,6 +91,7 @@ module.exports = {
           .finally(function() {
             return builder.cleanup();
           })
+          .then(this._cleanupRobotsTxt.bind(this, distDir))
           .then(this._logSuccess.bind(this, distDir))
           .then(function(files) {
             files = files || [];
@@ -99,6 +104,11 @@ module.exports = {
             self.log('build failed', { color: 'red' });
             return Promise.reject(error);
           });
+      },
+      _cleanupRobotsTxt: function(outputPath) {
+        cleanupRobotsTxt(outputPath);
+
+        return outputPath;
       },
       _logSuccess: function(outputPath) {
         var self = this;
