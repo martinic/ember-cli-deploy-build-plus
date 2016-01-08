@@ -17,5 +17,9 @@
 - [#17](https://github.com/martinic/ember-cli-deploy-build-plus/pull/1) Create mutable distDir input for the build hook. [@broerse](https://github.com/broerse)
 - [#18](https://github.com/martinic/ember-cli-deploy-build-plus/commit/5b8154394e1ea52da89c7beeba7147865d530d9d) Upgrade to ember-cli v2.2.0-beta.1
 - [#19](https://github.com/martinic/ember-cli-deploy-build-plus/pull/9) ENV specific robots.txt [@fsmanuel](https://github.com/fsmanuel), [@broerse](https://github.com/broerse)
+- [#20](https://github.com/martinic/ember-cli-deploy-build-plus/commit/59654c0a8f4b9d604e33732451f85faefd3e4bde) fix path [@fsmanuel](https://github.com/fsmanuel)
+
+
+
 
 Thank you to all who took the time to contribute!
