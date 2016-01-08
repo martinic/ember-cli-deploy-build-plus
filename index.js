@@ -35,7 +35,7 @@ module.exports = {
     this._requireBuildPackages();
 
     fs.stat(
-      path.join(this.root, this.app.trees.public, 'robots.txt'),
+      path.join(this.project.root, 'public', 'robots.txt'),
       function(err, stats) {
         if (stats && stats.isFile()) {
           console.log(chalk.yellow('There is a robots.txt in /public and ENV specific robots.txt are ignored!'));
