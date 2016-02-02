@@ -170,7 +170,6 @@ describe('build plugin', function() {
                'assets/dummy.css',
                'assets/dummy.js',
                'assets/dummy.map',
-               'assets/ember-data.js.map',
                'assets/failed.png',
                'assets/passed.png',
                'assets/test-loader.js',
