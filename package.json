@@ -39,7 +39,7 @@
     "ember-load-initializers": "^0.5.0",
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.0",
-    "ember-try": "0.1.2",
+    "ember-try": "0.2.0",
     "github": "^0.2.4",
     "mocha": "^2.4.5",
     "multiline": "^1.0.2"
