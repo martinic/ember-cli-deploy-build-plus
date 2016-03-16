@@ -19,5 +19,7 @@
 - [#19](https://github.com/martinic/ember-cli-deploy-build-plus/pull/9) ENV specific robots.txt [@fsmanuel](https://github.com/fsmanuel), [@broerse](https://github.com/broerse)
 - [#20](https://github.com/martinic/ember-cli-deploy-build-plus/commit/59654c0a8f4b9d604e33732451f85faefd3e4bde) fix path [@fsmanuel](https://github.com/fsmanuel)
 - [#21](https://github.com/martinic/ember-cli-deploy-build-plus/commit/17076dc218e5962d92962a1d9db683d807a847cf) Upgrade to ember-cli v2.3.0-beta.1
+- [#22](https://github.com/martinic/ember-cli-deploy-build-plus/commit/0f80f14462c224e42feb1a6a82af181b21919545) Update ember-cli-deploy-plugin to version 0.2.2
+- [#23](https://github.com/martinic/ember-cli-deploy-build-plus/commit/fd3e427b08212bdc4a112067047443de0478b274) Upgrade to ember-cli v2.4.2
 
 Thank you to all who took the time to contribute!
