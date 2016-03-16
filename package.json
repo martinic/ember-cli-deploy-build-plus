@@ -54,7 +54,7 @@
     "ember-cli-deploy-plugin": "0.2.2",
     "broccoli-stew": "^1.2.0",
     "broccoli-funnel": "^1.0.1",
-    "glob": "^7.0.0",
+    "glob": "^7.0.3",
     "rsvp": "^3.2.1"
   },
   "ember-addon": {
