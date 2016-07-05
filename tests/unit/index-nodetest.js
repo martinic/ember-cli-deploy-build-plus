@@ -1,7 +1,7 @@
 /*jshint globalstrict: true*/
 'use strict';
 
-var assert  = require('ember-cli/tests/helpers/assert');
+var assert  = require('ember-cli-internal-test-helpers/lib/helpers/assert');
 
 describe('build plugin', function() {
   var subject, mockUi, config;
@@ -127,7 +127,7 @@ describe('build plugin', function() {
       };
       plugin.beforeHook(context);
     });
-    
+
     it('resolves with distDir', function() {
       assert.deepEqual(plugin.setup(context), {
         distDir: 'tmp/dist-deploy'
