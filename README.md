@@ -1,5 +1,7 @@
 # ember-cli-deploy-build-plus
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/martinic/ember-cli-deploy-build-plus.svg)](https://greenkeeper.io/)
+
 > An ember-cli-deploy plugin to build your ember-cli application
 
 [![](https://ember-cli-deploy.github.io/ember-cli-deploy-version-badges/plugins/ember-cli-deploy-build-plus.svg)](http://ember-cli-deploy.github.io/ember-cli-deploy-version-badges/)
