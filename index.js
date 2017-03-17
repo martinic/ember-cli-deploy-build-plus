@@ -1,7 +1,7 @@
 /* jshint node: true */
 'use strict';
 
-var Promise = require('ember-cli/lib/ext/promise');
+var RSVP = require('rsvp');
 var glob  = require('glob');
 var DeployPluginBase = require('ember-cli-deploy-plugin');
 var path = require('path');
@@ -102,7 +102,7 @@ module.exports = {
           })
           .catch(function(error) {
             self.log('build failed', { color: 'red' });
-            return Promise.reject(error);
+            return RSVP.reject(error);
           });
       },
       _cleanupRobotsTxt: function(outputPath) {
@@ -121,7 +121,7 @@ module.exports = {
         }
         self.log('build ok', { verbose: true });
 
-        return Promise.resolve(files);
+        return RSVP.resolve(files);
       }
     });
     return new DeployPlugin();

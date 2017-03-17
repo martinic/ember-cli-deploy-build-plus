@@ -22,4 +22,6 @@
 - [#22](https://github.com/martinic/ember-cli-deploy-build-plus/commit/0f80f14462c224e42feb1a6a82af181b21919545) Update ember-cli-deploy-plugin to version 0.2.2
 - [#23](https://github.com/martinic/ember-cli-deploy-build-plus/commit/fd3e427b08212bdc4a112067047443de0478b274) Upgrade to ember-cli v2.4.2
 - [#23](https://github.com/martinic/ember-cli-deploy-build-plus/commit/ad8d4a167c722a19f77bf5ee8a916a15d00b411d) Upgrade to ember-cli v2.6.2
+- Fix DEPRECATION: `ember-cli/ext/promise` is deprecated, use `rsvp` instead.
+
 Thank you to all who took the time to contribute!
