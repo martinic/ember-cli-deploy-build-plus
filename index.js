@@ -14,7 +14,7 @@ function cleanupRobotsTxt(outputPath) {
   var files = glob.sync(outputPath + path.sep + 'robots-*.txt');
   if (files && files.length) {
     files.forEach(function(path) {
-      fs.unlink(path);
+      fs.unlink(path, function(){});
     });
   }
 }
