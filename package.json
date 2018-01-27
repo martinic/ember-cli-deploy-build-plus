@@ -1,6 +1,6 @@
 {
   "name": "ember-cli-deploy-build-plus",
-  "version": "0.1.9",
+  "version": "0.1.10",
   "description": "A Build Plugin for ember-cli-deploy",
   "directories": {
     "doc": "doc",
