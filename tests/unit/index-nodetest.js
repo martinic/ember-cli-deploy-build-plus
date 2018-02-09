@@ -1,4 +1,4 @@
-/*jshint globalstrict: true*/
+/* eslint-env node */
 'use strict';
 
 var assert  = require('ember-cli-internal-test-helpers/lib/helpers/assert');
