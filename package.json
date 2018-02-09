@@ -13,7 +13,7 @@
   },
   "repository": "https://github.com/martinic/ember-cli-deploy-build-plus",
   "engines": {
-    "node": ">= 0.10.0"
+    "node": ">= 4"
   },
   "author": "Aaron Chambers and the ember-cli-deploy team",
   "license": "MIT",
