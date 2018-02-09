@@ -41,7 +41,7 @@
     "ember-resolver": "^2.0.3",
     "loader.js": "^4.0.10",
     "github": "^2.2.0",
-    "mocha": "^2.5.3",
+    "mocha": "^3.0.0",
     "multiline": "^1.0.2"
   },
   "keywords": [
