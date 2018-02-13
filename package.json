@@ -53,7 +53,8 @@
     "eslint-plugin-node": "^5.2.1",
     "loader.js": "^4.2.3",
     "mocha": "^2.5.3",
-    "multiline": "^1.0.2"
+    "multiline": "^1.0.2",
+    "testdouble": "^3.0.0"
   },
   "engines": {
     "node": "^4.5 || 6.* || >= 7.*"

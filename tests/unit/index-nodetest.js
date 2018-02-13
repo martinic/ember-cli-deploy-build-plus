@@ -2,12 +2,15 @@
 'use strict';
 
 var assert  = require('ember-cli-internal-test-helpers/lib/helpers/assert');
+var baseSubject = require('../../index');
+var path = require('path');
+var Project  = require('ember-cli/lib/models/project');
 
 describe('build plugin', function() {
   var subject, mockUi, config;
 
   beforeEach(function() {
-    subject = require('../../index');
+    subject = baseSubject;
     mockUi = {
       messages: [],
       verbose: true,
@@ -143,36 +146,46 @@ describe('build plugin', function() {
         name: 'build'
       });
 
+      var mockCli = {
+        root: path.resolve(__dirname, '..')
+      };
+
       context = {
         ui: mockUi,
-        project: {
-          name: function() { return 'test-project'; },
-          require: function(mod) { return require(mod); },
-          addons: [],
-          root: 'tests/dummy'
-        },
+        project: Project.projectOrnullProject(mockUi, mockCli),
         config: {
           build: {
             buildEnv: 'development',
-            distDir: 'tmp/dist-deploy'
+            distDir: 'tmp/dist-deploy',
           }
         }
       };
+
       plugin.beforeHook(context);
     });
 
     it('builds the app and resolves with distFiles', function(done) {
       this.timeout(50000);
+      //console.log('voor require')
+      var MockProcess = require('ember-cli/tests/helpers/mock-process');
+      var MockProject = require('ember-cli/tests/helpers/mock-project');
+      context.project = new MockProject();
+      context.project.require = function(mod) { return require(mod); };
+//      var MockAnalytics = require('ember-cli/tests/helpers/mock-analytics');
+      var willInterruptProcess = require('ember-cli/lib/utilities/will-interrupt-process');
+      var _process = new MockProcess();
+      willInterruptProcess.capture(_process);
       return assert.isFulfilled(plugin.build(context))
         .then(function(result) {
+          console.log(result);
           assert.deepEqual(result, {
             distFiles: [
                'assets/dummy.css',
                'assets/dummy.js',
                'assets/dummy.map',
-               'assets/failed.png',
-               'assets/passed.png',
-               'assets/test-loader.js',
+//               'assets/failed.png',
+//               'assets/passed.png',
+//               'assets/test-loader.js',
                'assets/test-support.css',
                'assets/test-support.js',
                'assets/test-support.map',
