@@ -54,6 +54,14 @@ module.exports = {
       destDir: '/'
     });
   },
+	
+	_requireBuildPackages() {		
+     if (this._didRequiredBuildPackages === true) {		
+       return;		
+     } else {		
+       this._didRequiredBuildPackages = true;		
+     }		
+   },
 
   createDeployPlugin: function(options) {
     var DeployPlugin = DeployPluginBase.extend({
