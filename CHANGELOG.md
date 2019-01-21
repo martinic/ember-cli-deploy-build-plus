@@ -25,5 +25,6 @@
 - Fix DEPRECATION: `ember-cli/ext/promise` is deprecated, use `rsvp` instead.
 - Fix DeprecationWarning: Calling an asynchronous function without callback is deprecated.
 - Upgrade to ember-cli v2.18.2
+- Reinstated deprecated ember-cli tree method [#227](https://github.com/martinic/ember-cli-deploy-build-plus/pull/227)
 
 Thank you to all who took the time to contribute!
