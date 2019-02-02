@@ -30,6 +30,9 @@ module.exports = {
   // Pick env specific robots.txt
   treeForPublic: function() {
     var appEnv = this.app.env;
+    if (process.env.DEPLOY_TARGET) {
+      appEnv = process.env.DEPLOY_TARGET;
+    }
     var publicFiles = new Funnel(this.app.trees.public);
 
     this._requireBuildPackages();
@@ -54,13 +57,13 @@ module.exports = {
       destDir: '/'
     });
   },
-	
-	_requireBuildPackages() {		
-     if (this._didRequiredBuildPackages === true) {		
-       return;		
-     } else {		
-       this._didRequiredBuildPackages = true;		
-     }		
+
+	_requireBuildPackages() {
+     if (this._didRequiredBuildPackages === true) {
+       return;
+     } else {
+       this._didRequiredBuildPackages = true;
+     }
    },
 
   createDeployPlugin: function(options) {
