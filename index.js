@@ -77,6 +77,14 @@ module.exports = {
         }
       },
 
+      beforeHook: function(context) {
+        if (!context.config[this.name]) {
+          context.config[this.name] = context.config['build'];
+        }
+        
+        this._super.beforeHook.apply(this, arguments);
+      },
+
       setup: function() {
         var outputPath = this.readConfig('outputPath');
         return {
